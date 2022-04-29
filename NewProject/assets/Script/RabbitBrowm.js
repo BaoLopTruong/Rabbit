@@ -1,5 +1,8 @@
 cc.Class({
     extends: cc.Component,
+    editor: {
+        executionOrder: -1
+    },
 
     properties: {
 
@@ -7,19 +10,23 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        this.node.active = false;
+    },
 
     start () {
-      
+     // this.node.angle = 90;
+     cc.log("RabbitBrown: Hello, Im Brownie");
     },
 
     update (dt) {
         if(this.node.x <=100){
-            this.node.x += (dt*20);
-            this.node.angle += (dt*100);
+            this.node.x += (dt*100);
+            this.node.angle += (-dt*200);
+        }else{
+            this.node.angle = 0;
         }
-        if(this.node.x==100){
-          this.node.angle -= (dt*100);
-        }
+        
+     
     },
 });

@@ -1,22 +1,27 @@
 
 cc.Class({
     extends: cc.Component,
+    editor: {
+        executionOrder: -1
+    },
 
     properties: {
-
+        brownRabit:{
+            default:null,
+            type:cc.Component
+        }
     },
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {},
-
     start () {
-      
+        cc.log("RabbitWhite: Hello");
     },
 
-    update (dt) {
+    update (dt=1) {
+        cc.log(1);
         if(this.node.x <=100){
-            this.node.x += (dt*10);
+            this.node.x += (dt*100);
+        }
+        else{
+            this.brownRabit.node.active = true;
         }
     },
 });
